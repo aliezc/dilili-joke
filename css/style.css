@@ -1,0 +1,65 @@
+.header{
+	height: 48px;
+	line-height: 48px;
+	color: #fff;
+	text-align: center;
+	background-color: #21aa82;
+}
+
+.backhome{
+	height: 48px;
+	display: block;
+	width: 48px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 12px;
+}
+
+.list{
+	box-sizing: border-box;
+}
+
+.list a{
+	color: #2070d2;
+}
+.list a:hover{
+	text-decoration: underline;
+}
+
+.list div{
+	padding: 24px;
+	margin: 24px auto;
+	width: 80%;
+	background: #fff;
+}
+
+.page{
+	overflow: hidden;
+	width: 80%;
+	margin: 24px auto;
+	box-sizing: border-box;
+}
+
+.page a{
+	display: block;
+	padding: 12px 24px;
+	float: left;
+	background: #fff;
+	color: #555;
+}
+
+.page .next{
+	float: right;
+}
+
+.page a:hover{
+	color: #2070d2;
+}
+.about{
+	display: block;
+	color: #999;
+	font-size: .75rem;
+	margin-top: 24px;
+}
