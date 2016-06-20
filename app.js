@@ -5,7 +5,7 @@ var http = require('http');
 var mongo = require('mongodb');
 var assert = require('assert');
 var redis = require('redis');
-var cp = require('child_process');
+var gather = require('./lib/joke-gather.js');
 
 var mongourl = 'mongodb://127.0.0.1:27017/dilili';
 
@@ -66,6 +66,11 @@ var app = aliez(function(req, res){
 		res.render('./html/about.htm', {title: '滴哩哩笑话'});
 	});
 	
+	// 图标
+	req.match('/favicon.ico', function(req, res){
+		res.send('./favicon.ico');
+	});
+	
 	// 404
 	req.default(function(req, res){
 		res.send(new Buffer(''));
@@ -79,6 +84,7 @@ app.use(require('aliez-static'));
 app.use(require('aliez-render'));
 app.use(require('aliez-query'));
 
-cp.fork('./lib/joke-gather.js');
+gather();
+setInterval(gather, 1000 * 60 * 60 * 6);
 
-http.createServer(app).listen(2300);
+http.createServer(app).listen(2378);
