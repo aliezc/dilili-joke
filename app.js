@@ -56,6 +56,8 @@ var app = aliez(function(req, res){
 							prev: prev,
 							next: next
 						});
+						rc.quit();
+						db.close();
 					});
 				});
 			});
