@@ -6,8 +6,13 @@ var mongo = require('mongodb');
 var assert = require('assert');
 var redis = require('redis');
 var cp = require('child_process');
+var gather = require('./lib/joke-gather.js');
 
 var mongourl = 'mongodb://127.0.0.1:27017/dilili';
+
+gather();
+
+setInterval(gather, 1000 * 60 * 60 * 6);
 
 var app = aliez(function(req, res){
 	
@@ -79,6 +84,6 @@ app.use(require('aliez-static'));
 app.use(require('aliez-render'));
 app.use(require('aliez-query'));
 
-cp.fork('./lib/joke-gather.js');
+// cp.fork('./lib/joke-gather.js');
 
-http.createServer(app).listen(2300);
+http.createServer(app).listen(2378);
